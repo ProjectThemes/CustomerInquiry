@@ -32,7 +32,7 @@ c. Invalid Email
 3. The rest of the case is Bad Request with no error message.
 4. Assume CustomerID and Email are unique to a particular customer.
 
-#### Sample Requests
+## Sample Requests
 **Request Scenario #1**
 ```
 // inquiry with Customer ID
@@ -57,7 +57,7 @@ c. Invalid Email
 "email": "user @domain.com"
 }
 ```
-####Sample Responses
+## Sample Responses
 **Response Scenario #1**
 ```
 // Customer profile with no transaction
