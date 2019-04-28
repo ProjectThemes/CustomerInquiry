@@ -17,7 +17,7 @@ namespace CustomerInquiry.Models
 
     public class CustomerPostModel
     {
-        public int CustomerID { get; set; }
+        public string CustomerID { get; set; }
         public string Email { get; set; }
     }
 }
