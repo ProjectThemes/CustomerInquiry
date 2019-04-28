@@ -82,7 +82,7 @@ namespace CustomerInquiry.Controllers
 
                 return Ok<CustomerModel>(returnResult);
             }
-            catch (Exception ex)
+            catch
             {
                 return BadRequest("");
             }
