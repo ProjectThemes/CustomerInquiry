@@ -14,6 +14,7 @@ namespace CustomerInquiry.Controllers
     {
         private ICustomerRepository _repos;
         private CustomerFactory _factory;
+        private const string emailRegex = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
 
         public CustomerController(ICustomerRepository repos)
         {
@@ -32,7 +33,7 @@ namespace CustomerInquiry.Controllers
 
                 if (customerPost.Email != null)
                 {
-                    if (!Regex.IsMatch(customerPost.Email, @"^[a-zA-Z0-9_.+-]+@[email]+\.[a-zA-Z0-9-.]+$"))
+                    if (!Regex.IsMatch(customerPost.Email, emailRegex))
                     {
                         return BadRequest("Invalid Email");
                     }
