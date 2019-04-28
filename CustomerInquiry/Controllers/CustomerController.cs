@@ -1,4 +1,5 @@
-﻿using CustomerInquiry.Models;
+﻿using CustomerInquiry.DataContexts;
+using CustomerInquiry.Models;
 using System;
 using System.Text.RegularExpressions;
 using System.Web.Http;
@@ -7,6 +8,11 @@ namespace CustomerInquiry.Controllers
 {
     public class CustomerController : ApiController
     {
+        private CustomerContext _db;
+        public CustomerController()
+        {
+            _db = new CustomerContext();
+        }
         public IHttpActionResult Post([FromBody]CustomerPostModel customerPost)
         {
             try
@@ -45,14 +51,14 @@ namespace CustomerInquiry.Controllers
                 }
                 else if (customerPost.Email != null)
                 {
-
+                    
                 }
                 else
                 {
-
+                    
                 }
-
-                return Ok<CustomerModel>(new CustomerModel());
+                returnResult = new CustomerModel();
+                return Ok<CustomerModel>(returnResult);
             }
             catch
             {

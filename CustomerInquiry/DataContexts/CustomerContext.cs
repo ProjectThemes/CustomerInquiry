@@ -6,7 +6,7 @@ namespace CustomerInquiry.DataContexts
 {
     public class CustomerContext : DbContext
     {
-        public CustomerContext() : base("CustomerContext")
+        public CustomerContext() : base("CustomerConnection")
         {
         }
 

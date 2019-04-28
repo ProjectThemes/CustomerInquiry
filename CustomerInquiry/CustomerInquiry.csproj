@@ -164,7 +164,6 @@
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DataContexts\CustomerContext.cs" />
-    <Compile Include="DataContexts\CustomerInitializer.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\Transaction.cs" />
     <Compile Include="Enumeration\CurrencyCode.cs" />
@@ -173,6 +172,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\EnumHelper.cs" />
+    <Compile Include="Migrations\201904281259267_Initial.cs" />
+    <Compile Include="Migrations\201904281259267_Initial.Designer.cs">
+      <DependentUpon>201904281259267_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904281308503_ChangeDataType.cs" />
+    <Compile Include="Migrations\201904281308503_ChangeDataType.Designer.cs">
+      <DependentUpon>201904281308503_ChangeDataType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\TransactionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -259,6 +267,14 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201904281259267_Initial.resx">
+      <DependentUpon>201904281259267_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904281308503_ChangeDataType.resx">
+      <DependentUpon>201904281308503_ChangeDataType.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
