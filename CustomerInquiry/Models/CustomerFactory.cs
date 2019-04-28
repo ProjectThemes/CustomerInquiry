@@ -23,7 +23,7 @@ namespace CustomerInquiry.Models
             {
                 Id = transaction.TransactionID,
                 Date = transaction.TrasactionDate.ToString("dd/MM/yy HH:mm"),
-                Amount = transaction.Amount, //TODO 2 decimal place format
+                Amount = transaction.Amount, // No formatting because its a number with fixed precision
                 Currency = transaction.CurrencyCode,
                 Status = transaction.Status
             };
