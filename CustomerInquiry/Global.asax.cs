@@ -28,7 +28,6 @@ namespace CustomerInquiry
             GlobalConfiguration.Configure(c => WebApiConfig.Register(c, _container));
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
         public static void ConfigureWindsor(HttpConfiguration configuration)
