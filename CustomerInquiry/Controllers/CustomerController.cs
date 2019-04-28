@@ -38,6 +38,7 @@ namespace CustomerInquiry.Controllers
                     }
                 }
 
+                CustomerModel returnResult;
                 if (customerPost.Email != null && customerId != 0)
                 {
 
@@ -53,7 +54,7 @@ namespace CustomerInquiry.Controllers
 
                 return Ok<CustomerModel>(new CustomerModel());
             }
-            catch (Exception ex)
+            catch
             {
                 return BadRequest("");
             }
