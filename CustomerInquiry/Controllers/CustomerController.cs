@@ -75,6 +75,11 @@ namespace CustomerInquiry.Controllers
                         .FirstOrDefault();
                 }
                 
+                if(returnResult == null)
+                {
+                    return Ok(new { Message = "Not found" });
+                }
+
                 return Ok<CustomerModel>(returnResult);
             }
             catch (Exception ex)
