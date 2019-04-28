@@ -16,8 +16,13 @@ namespace CustomerInquiry.Entities
         [ForeignKey("Customer")]
         public int CustomerID { get; set; }
         public DateTime TrasactionDate { get; set; }
+
         public decimal Amount { get; set; }
+
+        [MaxLength(5)]
         public string CurrencyCode { get; set; }
+
+        [MaxLength(15)]
         public string Status { get; set; }
 
         public virtual Customer Customer { get; set; }

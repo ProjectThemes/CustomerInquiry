@@ -189,6 +189,14 @@
     <Compile Include="Migrations\201904281308503_ChangeDataType.Designer.cs">
       <DependentUpon>201904281308503_ChangeDataType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904281456262_CustomizeDatasize.cs" />
+    <Compile Include="Migrations\201904281456262_CustomizeDatasize.Designer.cs">
+      <DependentUpon>201904281456262_CustomizeDatasize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904281458511_CustomizeDatasize2.cs" />
+    <Compile Include="Migrations\201904281458511_CustomizeDatasize2.Designer.cs">
+      <DependentUpon>201904281458511_CustomizeDatasize2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\TransactionModel.cs" />
@@ -286,6 +294,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904281308503_ChangeDataType.resx">
       <DependentUpon>201904281308503_ChangeDataType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904281456262_CustomizeDatasize.resx">
+      <DependentUpon>201904281456262_CustomizeDatasize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904281458511_CustomizeDatasize2.resx">
+      <DependentUpon>201904281458511_CustomizeDatasize2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

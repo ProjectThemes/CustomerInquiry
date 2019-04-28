@@ -22,7 +22,6 @@ namespace CustomerInquiry.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
-
             var customers = new List<Customer>
             {
                 new Customer { CustomerName = "Thanapon Phada-Anant", ContactEmail = "thanapon_p@live.com", MobileNo = "0988798464"},
