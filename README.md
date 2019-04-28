@@ -1,3 +1,9 @@
+## SQL Migration
+Please use migration script provided in the solution by running the following command in the **Package Manager Console** in Visual Studio
+```
+Update-Database
+```
+
 ## Description
 Implement a service to provide customer inquiry and return result, which contains customer detail and
 its recent payment history.
@@ -15,7 +21,8 @@ maintainable software.
 3. Contact Email (Max 25 digits)
 4. Mobile No (Numeric 10 digits)
 5. List of recent transaction (Up to 5 records)
-**Transaction
+
+**Transaction**
 1. Transaction ID (Numeric)
 2. Transaction Date/Time (DD/MM/YY HH:MM e.g. 31/02/2018 21:34)
 3. Amount (2 decimal points e.g. 100.00, 1234.56 or 1.99)
