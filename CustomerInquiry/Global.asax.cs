@@ -1,4 +1,7 @@
-﻿using CustomerInquiry.DataContexts;
+﻿using Castle.MicroKernel.Registration;
+using Castle.Windsor;
+using CustomerInquiry.DataContexts;
+using CustomerInquiry.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

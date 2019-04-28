@@ -2,6 +2,7 @@
 using CustomerInquiry.Enumeration;
 using CustomerInquiry.Helpers;
 using CustomerInquiry.Models;
+using CustomerInquiry.Repositories;
 using System;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -11,10 +12,13 @@ namespace CustomerInquiry.Controllers
 {
     public class CustomerController : ApiController
     {
-        private CustomerContext _db;
+        private ICustomerRepository _repos;
+        private CustomerFactory _factory;
+
         public CustomerController()
         {
-            _db = new CustomerContext();
+            _repos = new CustomerRepository(new CustomerContext());
+            _factory = new CustomerFactory();
         }
         public IHttpActionResult Post([FromBody]CustomerPostModel customerPost)
         {
@@ -50,27 +54,24 @@ namespace CustomerInquiry.Controllers
                 CustomerModel returnResult;
                 if (customerPost.Email != null && customerId != 0)
                 {
-                    returnResult = new CustomerModel();
+                    returnResult = _repos.GetCustomer(customerId, customerPost.Email)
+                        .ToList()
+                        .Select(c => _factory.Create(c))
+                        .FirstOrDefault();
                 }
                 else if (customerPost.Email != null)
                 {
-                    returnResult = new CustomerModel();
+                    returnResult = _repos.GetCustomer(customerPost.Email)
+                        .ToList()
+                        .Select(c => _factory.Create(c))
+                        .FirstOrDefault();
                 }
                 else
                 {
-                    returnResult = _db.Customers.Where(c => c.CustomerID == customerId).Select(c => new CustomerModel {
-                        CustomerID = c.CustomerID,
-                        Name = c.CustomerName,
-                        Email = c.ContactEmail,
-                        Mobile = c.MobileNo,
-                        Transactions = c.Transactions.Take(5).OrderByDescending(t => t.TrasactionDate).Select(t => new TransactionModel {
-                            Id = t.TransactionID,
-                            Date = t.TrasactionDate.ToString(), //TODO Date format
-                            Amount = t.Amount, //TODO 2 decimal place format
-                            Currency =t.CurrencyCode,
-                            Status = t.Status
-                        })
-                    }).FirstOrDefault();
+                    returnResult = _repos.GetCustomer(customerId)
+                        .ToList()
+                        .Select(c => _factory.Create(c))
+                        .FirstOrDefault();
                 }
                 
                 return Ok<CustomerModel>(returnResult);
