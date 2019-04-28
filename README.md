@@ -1,5 +1,5 @@
 ## SQL Migration
-Please use migration script provided in the solution by running the following command in the **Package Manager Console** in Visual Studio
+Please use migration script provided in the solution by running the following command in Visual Studio **Package Manager Console**
 ```
 Update-Database
 ```
