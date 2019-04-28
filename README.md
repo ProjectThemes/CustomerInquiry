@@ -1,15 +1,15 @@
-##Description
+## Description
 Implement a service to provide customer inquiry and return result, which contains customer detail and
 its recent payment history.
 Use best practices and design patterns, skills in design/architecture, ability to build testable and
 maintainable software.
 
-##Domain
-**Inquiry Criteria
+## Domain
+**Inquiry Criteria**
 1. Customer ID (Numeric, max 10 digits)
 2. Email (Valid email format, max 25 digits)
 
-**Customer
+**Customer**
 1. Customer ID (Numeric, 10 digits)
 2. Customer Name (Character max 30 chars)
 3. Contact Email (Max 25 digits)
@@ -22,7 +22,7 @@ maintainable software.
 4. Currency Code (e.g. USD, JPY, THB or SGD)
 5. Status (Success, Failed or Canceled)
 
-##Validation Rules
+## Validation Rules
 1. At least 1 of the inquiry criteria must be provided. Unless return Bad Request with one of the
 following error message:
 a. No inquiry criteria
@@ -33,14 +33,14 @@ c. Invalid Email
 4. Assume CustomerID and Email are unique to a particular customer.
 
 #### Sample Requests
-**Request Scenario #1
+**Request Scenario #1**
 ```
 // inquiry with Customer ID
 {
 "customerID": 123456
 }
 ```
-**Request Scenario #2
+**Request Scenario #2**
 
 ```
 // inquiry with Email
@@ -48,7 +48,7 @@ c. Invalid Email
 "email": "user @domain.com"
 }
 ```
-**Request Scenario #3
+**Request Scenario #3**
 
 ```
 // inquiry with both attributes
@@ -58,8 +58,9 @@ c. Invalid Email
 }
 ```
 ####Sample Responses
-**Response Scenario #1
-Customer profile with no transaction
+**Response Scenario #1**
+```
+// Customer profile with no transaction
 {
 "customerID": 123456,
 "name": "Firstname Lastname",
@@ -67,8 +68,10 @@ Customer profile with no transaction
 "mobile": "0123456789",
 "transactions": []
 }
-**Response Scenario #2
-Customer profile with 1 transaction
+```
+**Response Scenario #2**
+```
+// Customer profile with 1 transaction
 {
 "customerID": 123456,
 "name": "Firstname Lastname",
@@ -82,8 +85,10 @@ Customer profile with 1 transaction
 "status": "Success"
 }]
 }
-**Response Scenario #3
-Customer profile with multiple transactions
+```
+**Response Scenario #3**
+```
+// Customer profile with multiple transactions
 {
 "customerID": 123456,
 "name": "Firstname Lastname",
@@ -107,3 +112,4 @@ Customer profile with multiple transactions
 }
 ]
 }
+```
