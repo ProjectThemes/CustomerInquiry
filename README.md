@@ -37,7 +37,7 @@ c. Invalid Email
 ```
 // inquiry with Customer ID
 {
-"customerID": 123456
+	"customerID": 123456
 }
 ```
 **Request Scenario #2**
@@ -45,7 +45,7 @@ c. Invalid Email
 ```
 // inquiry with Email
 {
-"email": "user @domain.com"
+	"email": "user @domain.com"
 }
 ```
 **Request Scenario #3**
@@ -53,8 +53,8 @@ c. Invalid Email
 ```
 // inquiry with both attributes
 {
-"customerID": 123456,
-"email": "user @domain.com"
+	"customerID": 123456,
+	"email": "user @domain.com"
 }
 ```
 ## Sample Responses
@@ -62,54 +62,56 @@ c. Invalid Email
 ```
 // Customer profile with no transaction
 {
-"customerID": 123456,
-"name": "Firstname Lastname",
-"email": "user @domain.com",
-"mobile": "0123456789",
-"transactions": []
+	"customerID": 123456,
+	"name": "Firstname Lastname",
+	"email": "user @domain.com",
+	"mobile": "0123456789",
+	"transactions": []
 }
 ```
 **Response Scenario #2**
 ```
 // Customer profile with 1 transaction
 {
-"customerID": 123456,
-"name": "Firstname Lastname",
-"email": "user @domain.com",
-"mobile": "0123456789",
-"transactions": [{
-"id": 1,
-"date": "31/02/2018 21:34",
-"amount": "1234.56",
-"currency": "USD",
-"status": "Success"
-}]
+	"customerID": 123456,
+	"name": "Firstname Lastname",
+	"email": "user @domain.com",
+	"mobile": "0123456789",
+	"transactions": [
+		{
+			"id": 1,
+			"date": "31/02/2018 21:34",
+			"amount": "1234.56",
+			"currency": "USD",
+			"status": "Success"
+		}
+	]
 }
 ```
 **Response Scenario #3**
 ```
 // Customer profile with multiple transactions
 {
-"customerID": 123456,
-"name": "Firstname Lastname",
-"email": "user @domain.com",
-"mobile": "0123456789",
+	"customerID": 123456,
+	"name": "Firstname Lastname",
+	"email": "user @domain.com",
+	"mobile": "0123456789",
 
-"transactions": [
-{
-"id": 1,
-"date": "31/02/2018 21:34",
-"amount": "1234.56",
-"currency": "USD",
-"status": "Success"
-},
-{
-"id": 2,
-"date": "01/11/2018 08:34",
-"amount": "0.56",
-"currency": "THB",
-"status": "Failed"
-}
-]
+	"transactions": [
+		{
+			"id": 1,
+			"date": "31/02/2018 21:34",
+			"amount": "1234.56",
+			"currency": "USD",
+			"status": "Success"
+		},
+		{
+			"id": 2,
+			"date": "01/11/2018 08:34",
+			"amount": "0.56",
+			"currency": "THB",
+			"status": "Failed"
+		}
+	]
 }
 ```
