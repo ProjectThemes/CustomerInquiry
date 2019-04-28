@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CustomerInquiry.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -11,7 +12,7 @@ namespace CustomerInquiry.Controllers
     {
         public CustomerModel Get()
         {
-
+            return new CustomerModel();
         }
     }
 }
