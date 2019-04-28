@@ -15,9 +15,9 @@ namespace CustomerInquiry.Controllers
         private ICustomerRepository _repos;
         private CustomerFactory _factory;
 
-        public CustomerController()
+        public CustomerController(ICustomerRepository repos)
         {
-            _repos = new CustomerRepository(new CustomerContext());
+            _repos = repos;
             _factory = new CustomerFactory();
         }
         public IHttpActionResult Post([FromBody]CustomerPostModel customerPost)
