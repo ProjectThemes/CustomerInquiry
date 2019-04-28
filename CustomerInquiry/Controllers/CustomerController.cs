@@ -1,6 +1,9 @@
 ﻿using CustomerInquiry.DataContexts;
+using CustomerInquiry.Enumeration;
+using CustomerInquiry.Helpers;
 using CustomerInquiry.Models;
 using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web.Http;
 
@@ -47,20 +50,32 @@ namespace CustomerInquiry.Controllers
                 CustomerModel returnResult;
                 if (customerPost.Email != null && customerId != 0)
                 {
-
+                    returnResult = new CustomerModel();
                 }
                 else if (customerPost.Email != null)
                 {
-                    
+                    returnResult = new CustomerModel();
                 }
                 else
                 {
-                    
+                    returnResult = _db.Customers.Where(c => c.CustomerID == customerId).Select(c => new CustomerModel {
+                        CustomerID = c.CustomerID,
+                        Name = c.CustomerName,
+                        Email = c.ContactEmail,
+                        Mobile = c.MobileNo,
+                        Transactions = c.Transactions.Take(5).OrderByDescending(t => t.TrasactionDate).Select(t => new TransactionModel {
+                            Id = t.TransactionID,
+                            Date = t.TrasactionDate.ToString(), //TODO Date format
+                            Amount = t.Amount, //TODO 2 decimal place format
+                            Currency =t.CurrencyCode,
+                            Status = t.Status
+                        })
+                    }).FirstOrDefault();
                 }
-                returnResult = new CustomerModel();
+                
                 return Ok<CustomerModel>(returnResult);
             }
-            catch
+            catch (Exception ex)
             {
                 return BadRequest("");
             }
