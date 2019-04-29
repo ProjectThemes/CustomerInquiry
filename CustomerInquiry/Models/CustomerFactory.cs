@@ -13,7 +13,7 @@ namespace CustomerInquiry.Models
                 Name = customer.CustomerName,
                 Email = customer.ContactEmail,
                 Mobile = customer.MobileNo,
-                Transactions = customer.Transactions.Take(5).OrderByDescending(t => t.TrasactionDate).Select(t => Create(t))
+                Transactions = customer.Transactions.OrderByDescending(t => t.TrasactionDate).Take(5).Select(t => Create(t))
             };
         }
 
